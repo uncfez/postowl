@@ -14,7 +14,7 @@
   import InsertImage from './tools/InsertImage.svelte';
   import CreateLink from './tools/CreateLink.svelte';
 
-  export let confirmLabel = 'Save';
+  export let confirmLabel = 'Spara';
   export let canConfirm = true;
 
   let editorView = null;
@@ -171,7 +171,7 @@
         {/if}
 
         <div class="flex-1 h-8" />
-        <PrimaryButton type="button" on:click={handleCancel}>Cancel</PrimaryButton>
+        <PrimaryButton type="button" on:click={handleCancel}>Avbryt</PrimaryButton>
         <div class="shrink-0 w-2 sm:w-4" />
         <SecondaryButton type="button" on:click={handleSave} disabled={!canConfirm}
           >{confirmLabel}</SecondaryButton

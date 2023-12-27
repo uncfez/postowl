@@ -110,7 +110,7 @@
   on:dblclick={cancelCropping}
 >
   {#if is_safari()}
-    <span class="text-[#EF174C]">ATTENTION:</span> Use Google Chrome, Firefox, oder Microsoft Edge for
+    <span class="text-[#EF174C]">ATTENTION:</span> Use Google Chrome, Firefox, or Microsoft Edge for
     optimized image quality and size.
   {:else}
     Confirm with ENTER. Cancel with ESC.
@@ -127,7 +127,7 @@
       >Confirm</button
     >
     <button class="bg-white text-black rounded-full px-4 py-2" on:click={cancelCropping}
-      >Cancel</button
+      >Avbryt</button
     >
     <div class="flex-1" />
   </div>

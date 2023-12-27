@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>Logged out</title>
+  <title>Utloggad</title>
   <link rel="icon" type="image/png" sizes="300x300" href={bio.avatar} />
   <link rel="apple-touch-icon" sizes="300x300" href={bio.avatar} />
 </svelte:head>
@@ -15,9 +15,9 @@
 <Limiter>
   <div class="pt-20">
     {#if form?.incorrect}
-      <p class="p-4 bg-red-100 text-red-600 my-4 rounded-md">Error while signing out.</p>
+      <p class="p-4 bg-red-100 text-red-600 my-4 rounded-md">Något gick fel vid utloggningen.</p>
     {:else}
-      Successfully logged out. <a class="underline" href="/">Continue</a>.
+      Du är utloggad. <a class="underline" href="/">Fortsätt</a>.
     {/if}
   </div>
 </Limiter>

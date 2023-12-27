@@ -120,7 +120,7 @@
         chooseVisibility ? 'z-50' : '' // pop to the top while editing visibility
       )}
     >
-      <span>{is_public ? 'Public' : 'Private'}</span>
+      <span>{is_public ? 'Offentligt' : 'Utkast'}</span>
       {#if editable}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +151,7 @@
             'block px-4 py-2 rounded-full mx-0 w-full text-left bg-white border border-black'
           )}
         >
-          Private <span class="text-sm">— Journal and drafts</span>
+          Utkast <span class="text-sm">— Utkast och ej offentliga inlägg</span>
         </button>
         <button
           on:click={togglePublic}
@@ -159,7 +159,7 @@
             'block px-4 py-2 rounded-full mx-0 w-full text-left bg-white border border-black'
           )}
         >
-          Public <span class="text-sm">— Everyone can read</span>
+          Offentligt <span class="text-sm">— Publiceras så att alla kan läsa</span>
         </button>
       </div>
     </div>
@@ -181,7 +181,7 @@
         id="search"
         name="search"
         class="block w-full border-none bg-transparent px-0 py-2 placeholder-gray-300 focus:border-black focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-0"
-        placeholder="Enter email or name to send to friends."
+        placeholder="Ange e-post eller namn för att göra utskick."
         type="text"
       />
     </div>

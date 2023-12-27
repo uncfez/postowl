@@ -24,8 +24,8 @@ export async function GET({ setHeaders }) {
           <dc:creator>${feed.name}</dc:creator>
           <description>${encodeHTMLEntities(p.content)}</description>
           <pubDate>${buildRFC822Date(p.created_at)}</pubDate>
-          <link>/letters/${p.slug}</link>
-          <guid isPermaLink="true">/letters/${p.slug}</guid>
+          <link>/post/${p.slug}</link>
+          <guid isPermaLink="true">/post/${p.slug}</guid>
         </item>`
       )
       .join('\n')}

@@ -74,11 +74,11 @@ export function formatDate(dateString, withTime) {
   if (withTime) {
     if (date.toDateString() === new Date().toDateString()) {
       // on same day, only show the time
-      return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+      return date.toLocaleString('sv-SE', { hour: 'numeric', minute: 'numeric', hour12: true });
     } else {
       const opts = {
-        month: 'short',
         day: 'numeric',
+        month: 'short',
         hour: 'numeric',
         minute: 'numeric',
         hour12: true
@@ -86,12 +86,12 @@ export function formatDate(dateString, withTime) {
       if (date.getFullYear() !== new Date().getFullYear()) {
         opts.year = 'numeric';
       }
-      return date.toLocaleDateString('en-US', opts);
+      return date.toLocaleDateString('sv-SE', opts);
     }
   } else {
-    return date.toLocaleDateString('en-US', {
-      month: 'short',
+    return date.toLocaleDateString('sv-SE', {
       day: 'numeric',
+      month: 'short',
       year: 'numeric'
     });
   }
@@ -99,7 +99,7 @@ export function formatDate(dateString, withTime) {
 
 export function toDateString(value) {
   const date = value ? new Date(value) : new Date();
-  return date.toLocaleDateString('en-GB').split('/').reverse().join('-');
+  return date.toLocaleDateString('sv-SE').split('/').reverse().join('-');
 }
 
 // add a leading 0 to a number if it is only one digit
@@ -113,18 +113,18 @@ function addLeadingZero(num) {
 export function buildRFC822Date(dateString) {
   const dayStrings = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const monthStrings = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
+    'jan',
+    'feb',
+    'mars',
+    'apr',
+    'maj',
+    'juni',
+    'juli',
+    'aug',
+    'sep',
+    'oct',
+    'nov',
+    'dec'
   ];
 
   const timeStamp = Date.parse(dateString);

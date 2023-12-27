@@ -23,7 +23,7 @@
 
   async function deleteFriend() {
     if (!currentUser) return alert('Sorry, you are not authorized.');
-    if (confirm('Are you sure you want to delete this friend? It cannot be undone.')) {
+    if (confirm('Vill du verkligen radera? Det går inte att ångra.')) {
       try {
         await fetchJSON('POST', '/api/delete-friend', {
           friend_id: data.friend_id
@@ -31,7 +31,7 @@
         goto('/friends');
       } catch (err) {
         console.error(err);
-        alert('Error deleting friend. Try again.');
+        alert('Något gick fel. Försök igen.');
       }
     }
   }
@@ -48,7 +48,7 @@
     } catch (err) {
       console.error(err);
       alert(
-        "Could not save. Make sure that the name or email you provided haven't been used already."
+        "Det gick inte att spara. Se till att e-postadressen inte redan används."
       );
     }
   }
@@ -71,18 +71,18 @@
 <div class="max-w-screen-md mx-auto px-6 pb-8 sm:text-xl">
   <div class="pt-24 text-sm font-bold">Name</div>
   <div class="border-b py-2">
-    <PlainText {editable} bind:content={name} placeholder="Enter name" />
+    <PlainText {editable} bind:content={name} placeholder="Skriv namn" />
   </div>
 
-  <div class="pt-8 text-sm font-bold">Email</div>
+  <div class="pt-8 text-sm font-bold">E-post</div>
   <div class="border-b py-2">
-    <PlainText {editable} bind:content={email} placeholder="Enter email" />
+    <PlainText {editable} bind:content={email} placeholder="Skriv e-postadress" />
   </div>
 
   <div class="text-center pt-12">
     <button
       class="font-medium text-sm sm:text-base rounded-full w-full py-3 border border-rose-600 text-rose-600"
-      on:click={deleteFriend}>Delete friend</button
+      on:click={deleteFriend}>Radera vän</button
     >
   </div>
 </div>

@@ -85,12 +85,12 @@ export async function createPost(
       sendMail(
         recipient.email,
         title,
-        `<p>Hi ${recipient.name?.split(' ')[0]},</p>
-        <p>I'm writing to you from my website, here's the first part:</p>
+        `<p>Hej ${recipient.name?.split(' ')[0]},</p>
+        <p>Nyheter från Turf Västerbottens hemsida, så här börjar det:</p>
         <p>${teaser}</p>
-        <p><a href="${`${origin}/letters/${slug}?secret=${secret}`}">Read the full letter</a>.</p>
+        <p><a href="${`${origin}/post/${slug}?secret=${secret}`}">Läs hela inlägget</a>.</p>
         <p>${ADMIN_NAME.split(' ')[0]}</p>
-        <p><em>(This message was sent from ${ADMIN_NAME}'s <a href="https://www.postowl.com">PostOwl</a> website.)</em></p>`
+        <p><em>(Detta meddelande skickades från ${ADMIN_NAME}s <a href="https://www.postowl.com">PostOwl</a> website.)</em></p>`
       );
     }
     return post;
@@ -114,7 +114,7 @@ export async function updatePost(
   { currentUser, origin }
 ) {
   if (!currentUser) throw new Error('Not authorized');
-  if (!title) throw new Error('Title is mandatory');
+  if (!title) throw new Error('Rubrik saknas');
 
   return db.transaction(async () => {
     let new_slug; // in case the post title has changed
@@ -190,12 +190,12 @@ export async function updatePost(
         sendMail(
           recipient.email,
           title,
-          `<p>Hi ${recipient.name?.split(' ')[0]},</p>
-          <p>I'm writing to you from my website, here's the first part:</p>
+          `<p>Hej ${recipient.name?.split(' ')[0]},</p>
+          <p>Nyheter från Turf Västerbottens hemsida, så här börjar det:</p>
           <p>${teaser}</p>
-          <p><a href="${`${origin}/letters/${slug}?secret=${secret}`}">Read the full letter</a>.</p>
+          <p><a href="${`${origin}/post/${slug}?secret=${secret}`}">Läs hela inlägget</a>.</p>
           <p>${ADMIN_NAME.split(' ')[0]}</p>
-          <p><em>(This message was sent from ${ADMIN_NAME}'s <a href="https://www.postowl.com">PostOwl</a> website.)</em></p>`
+          <p><em>(Detta meddelande skickades från ${ADMIN_NAME}s <a href="https://www.postowl.com">PostOwl</a> website.)</em></p>`
         );
         new_recipients.push(recipient_id);
       } else {
@@ -578,7 +578,7 @@ export async function getSitemap() {
     const sitemap = [];
     posts.forEach(a => {
       sitemap.push({
-        url: `/letters/${a.slug}`,
+        url: `/post/${a.slug}`,
         lastmod: new Date(a.modified_at).toISOString()
       });
     });

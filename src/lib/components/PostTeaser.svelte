@@ -9,8 +9,8 @@
 </script>
 
 <div
-  href={`/letters/${post.slug}`}
-  class={classNames('md:text-xl rounded-2xl border bg-white p-4 sm:p-8 border-black')}
+  href={`/post/${post.slug}`}
+  class={classNames('md:text-xl rounded-2xl border bg-white p-4 sm:p-8 border-gray-200')}
 >
   <div>
     {#if currentUser}
@@ -18,17 +18,17 @@
         <div class="flex-1">
           <!-- Only show this for the site owner -->
           {#if post.is_public}
-            <strong>Public</strong>
+            <strong>Offentligt</strong>
             {#if post.recipients.length > 0}
               (and sent to {lf.format(post.recipients.map(r => r.name))}){/if}
           {:else if post.recipients.length > 0}
-            <strong>Shared</strong> (sent to {lf.format(post.recipients.map(r => r.name))})
+            <strong>Delat</strong> (skickat till {lf.format(post.recipients.map(r => r.name))})
           {:else}
             Private
           {/if}
         </div>
         {#if post.is_public}
-          <div title="This post is publicly visible.">
+          <div title="Detta inlägg är offentligt.">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -49,14 +49,14 @@
     {/if}
     <div>
       <a
-        href={`/letters/${post.slug}`}
+        href={`/post/${post.slug}`}
         class={classNames('text-2xl md:text-3xl lg:text-4xl font-bold')}
       >
         {post.title}
       </a>
     </div>
     {#if teaser_image?.src && teaser_image?.width && teaser_image?.height}
-      <a href={`/letters/${post.slug}`}>
+      <a href={`/post/${post.slug}`}>
         <img
           class="block w-full mt-4"
           src={teaser_image.src}
@@ -68,13 +68,13 @@
     {/if}
     <div class="pt-4">
       <div class={teaser_image?.src ? 'line-clamp-3' : 'line-clamp-5'}>
-        <a href={`/letters/${post.slug}`}>
+        <a href={`/post/${post.slug}`}>
           <span class="font-bold">{formatDate(post.created_at)}</span> — {post.teaser}
         </a>
       </div>
     </div>
   </div>
   <div class="pt-4 flex">
-    <SecondaryButton size="sm" href={`/letters/${post.slug}`}>Continue reading →</SecondaryButton>
+    <SecondaryButton size="sm" href={`/post/${post.slug}`}>Läs mer →</SecondaryButton>
   </div>
 </div>

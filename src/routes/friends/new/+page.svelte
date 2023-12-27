@@ -22,7 +22,7 @@
     } catch (err) {
       console.error(err);
       alert(
-        'There was an error. You can try again, but before that, please just copy and paste your article into a safe place.'
+        'Något gick fel. Du kan försöka igen men, för säkerhets skull, kopiera och klistra först in innehållet på ett säkert ställe.'
       );
     }
   }
@@ -38,20 +38,20 @@
   <EditorToolbar
     on:cancel={() => goto('/friends')}
     on:save={createFriend}
-    confirmLabel="Create"
+    confirmLabel="Lägg till"
     canConfirm={isEmailValid(email)}
   />
 {/if}
 
 <div class="max-w-screen-md mx-auto px-6 pb-8 sm:text-xl">
-  <div class="pt-24 text-sm font-bold">Name</div>
+  <div class="pt-24 text-sm font-bold">Namn</div>
 
   <div class="border-b py-2">
-    <PlainText {editable} bind:content={name} placeholder="Enter name" />
+    <PlainText {editable} bind:content={name} placeholder="Skriv namn" />
   </div>
 
-  <div class="pt-8 text-sm font-bold">Email</div>
+  <div class="pt-8 text-sm font-bold">E-post</div>
   <div class="border-b py-2">
-    <PlainText {editable} bind:content={email} placeholder="Enter email" />
+    <PlainText {editable} bind:content={email} placeholder="Skriv e-postadress" />
   </div>
 </div>

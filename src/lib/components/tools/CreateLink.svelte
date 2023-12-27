@@ -10,7 +10,7 @@
   $: disabled = !createLink(editorState, null, editorView);
 
   function handleClick() {
-    let url = prompt('Enter link URL', 'https://example.com');
+    let url = prompt('Ange länkens URL', 'https://example.com');
     if (url) {
       toggleMark(schema.marks.link, { href: url })(editorState, editorView.dispatch);
       editorView.focus();

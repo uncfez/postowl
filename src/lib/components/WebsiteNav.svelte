@@ -45,7 +45,7 @@
     }
     // Go to new letter with n key
     if (e.key === 'n' && editable != true && !e.key.metaKey && !e.key.ctrlKey && currentUser) {
-      return goto('/letters/new');
+      return goto('/post/new');
     }
 
     // Go to friends list with f key
@@ -78,19 +78,22 @@
 >
   <div class="max-w-screen-md mx-auto py-4 px-6">
     <NotEditable {editable}>
-      <div class="flex items-center relative space-x-4">
-        <a href="/" on:click={goBack} class="text-sm font-bold uppercase">
-          {backButton ? '← ' : ''}
-          {latestBio.name}
+      <div class="flex items-center relative">
+        <a href="/" on:click={goBack} class="text-m font-bold">
+          {backButton ? '←Hem' : ''}
         </a>
-        <div class="flex-1" />
+        <a class="mr-2 px-2 py-1 rounded-md hover:text-black" href="/"> Vad är turf? </a>
+        <a class="mr-2 px-2 py-1 rounded-md hover:text-black" href="/"> Om föreningen </a>
+        <a class="mr-2 px-2 py-1 rounded-md hover:text-black" href="/"> Kalender </a>
+        <a class="mr-2 px-2 py-1 rounded-md hover:text-black" href="/"> Klassiker & pokal </a>
+        <div class="flex items-center relative" />
         {#if currentUser}
-          <PrimaryButton size="sm" href="/letters/new">New letter</PrimaryButton>
+          <PrimaryButton size="sm" href="/post/new">Nytt inlägg</PrimaryButton>
         {/if}
         <button
           on:click={() => (showMenu = true)}
           class="w-[26px] h-[26px] border border-black rounded-full"
-          title={'Open Menu'}
+          title={'Edit'}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -135,26 +138,26 @@
         <slot />
 
         <div class="space-y-4 flex flex-col pt-8">
-          <PrimaryButton size="sm" href="/letters/new">New letter</PrimaryButton>
+          <PrimaryButton size="sm" href="/post/new">Nytt inlägg</PrimaryButton>
         </div>
 
         <div class="space-y-4 flex flex-col">
           {#if $page.url?.pathname !== '/friends'}
-            <SecondaryButton size="sm" href="/friends">Manage friends</SecondaryButton>
+            <SecondaryButton size="sm" href="/friends">Hantera vänner</SecondaryButton>
           {/if}
         </div>
       {/if}
 
       {#if currentUser}
         <div class="pt-8 flex">
-          <div>Signed in as {currentUser.name}</div>
+          <div>Inloggad som {currentUser.name}</div>
           <div class="flex-1" />
           <div>
             <a
               data-sveltekit-preload-data="off"
               class="underline"
               href="/logout"
-              on:click={toggleMenu}>Sign out</a
+              on:click={toggleMenu}>Logga ut</a
             >
           </div>
         </div>
@@ -162,15 +165,15 @@
         <div class="">
           <form method="POST" action="/login" class="flex flex-col space-y-8">
             <div class="flex flex-col">
-              <label for="password" class="font-semibold mb-6 text-3xl">Sign in</label>
+              <label for="password" class="font-semibold mb-6 text-3xl">Logga in</label>
               <Input
                 type="password"
                 name="password"
                 id="password"
-                placeholder="Enter your password"
+                placeholder="Skriv in ditt lösenord"
               />
             </div>
-            <PrimaryButton type="submit">Sign in</PrimaryButton>
+            <PrimaryButton type="submit">Logga in</PrimaryButton>
             <div class="pt-8 text-sm sm:text-base">
               Only the owner can sign in. But you can run <a class="underline" href="https://www.postowl.com">PostOwl</a> yourself.
             </div>

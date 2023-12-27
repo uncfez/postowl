@@ -19,7 +19,7 @@
 
   async function createPost() {
     if (!currentUser) {
-      return alert('Sorry, you are not authorized to create new posts.');
+      return alert('Sorry, du har inte behörighet att skapa nya inlägg.');
     }
     const teaser = extractTeaser(document.getElementById('post_content'));
     const teaser_image = extractTeaserImage(document.getElementById('post_content'));
@@ -36,7 +36,7 @@
     } catch (err) {
       console.error(err);
       // HACK: This is guesswork
-      alert('Oops there was an error. Did you specify a title for your letter?');
+      alert('Oops, något blev fel. Har du angett någon titel för inlägget?');
     }
   }
 
@@ -46,7 +46,7 @@
 </script>
 
 <svelte:head>
-  <title>New letter</title>
+  <title>Nytt inlägg</title>
   <link rel="icon" type="image/png" sizes="300x300" href={bio.avatar} />
   <link rel="apple-touch-icon" sizes="300x300" href={bio.avatar} />
 </svelte:head>
@@ -55,7 +55,7 @@
   <EditorToolbar
     on:cancel={discardDraft}
     on:save={createPost}
-    confirmLabel={is_public ? 'Publish' : recipients.length > 0 ? 'Send' : 'Save'}
+    confirmLabel={is_public ? 'Publicera' : recipients.length > 0 ? 'Skicka e-post' : 'Spara utkast'}
     canConfirm={!!title}
   />
 {/if}

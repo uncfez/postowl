@@ -35,7 +35,7 @@
   async function deletePost() {
     if (!currentUser) return alert('Sorry, you are not authorized.');
 
-    if (confirm('Are you sure you want to delete this letter? It cannot be undone.')) {
+    if (confirm('Är du säker på att du vill radera inlägget? Det går inte att ångra.')) {
       try {
         await fetchJSON('POST', '/api/delete-post', {
           slug: data.slug
@@ -43,7 +43,7 @@
         goto('/');
       } catch (err) {
         console.error(err);
-        alert('Error deleting the article. Try again.');
+        alert('Kunde inte radera inlägget. Försök igen.');
         window.location.reload();
       }
     }
@@ -72,7 +72,7 @@
     } catch (err) {
       console.error(err);
       alert(
-        'There was an error. You can try again, but before that, please just copy and paste your article into a safe place.'
+        'Något gick fel. Du kan försöka igen men innan dess - för säkerhets skull - se till att kopiera och klistra in ditt inlägg på en säker plats.'
       );
     }
   }
@@ -108,9 +108,9 @@
         on:click={() => {
           editable = true;
           showMenu = false;
-        }}>Edit letter</SecondaryButton
+        }}>Redigera inlägg</SecondaryButton
       >
-      <SecondaryButton size="sm" on:click={deletePost}>Delete letter</SecondaryButton>
+      <SecondaryButton size="sm" on:click={deletePost}>Radera inlägg</SecondaryButton>
     </div>
   {/if}
 </WebsiteNav>

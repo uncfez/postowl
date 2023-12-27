@@ -6,7 +6,7 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     fontFamily: {
-      sans: ['Avenir', 'Montserrat', 'Corbel', 'URW Gothic', 'source-sans-pro', 'sans-serif']
+      sans: ['Jost', 'system-ui']
     },
     extend: {
       typography: {

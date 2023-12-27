@@ -103,7 +103,7 @@
         on:click={() => {
           editable = true;
           showMenu = false;
-        }}>Edit Profile</SecondaryButton
+        }}>Redigera profil</SecondaryButton
       >
     </div>
   {/if}
@@ -183,7 +183,7 @@
         id="search"
         name="search"
         class="block w-full rounded-full border-1 border-black bg-transparent py-2 pl-10 pr-24 placeholder-gray-400 focus:border-black focus:text-black focus:outline-none focus:ring-0"
-        placeholder={`Search ${data.posts.length} letters`}
+        placeholder={`Sök`}
         type="text"
       />
       {#if currentUser}
@@ -196,30 +196,30 @@
             class="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-0 ring-inset focus:ring-1 focus:ring-inset focus:ring-black sm:max-w-xs sm:text-sm leading-4"
             on:change={onInput}
           >
-            <option value="">Show all</option>
-            <option value="private">Private</option>
-            <option value="public">Public</option>
+            <option value="">Visa alla</option>
+            <option value="private">Utkast</option>
+            <option value="public">Publicerade</option>
           </select>
         </div>
       {/if}
     </div>
   </div>
 
-  <div id="letters">
+  <div id="post">
     {#if data.posts.length === 0}
       <div class="max-w-screen-md mx-auto px-6 pt-4 lg:pt-8">
         <div class="md:text-xl py-4 text-center">
           {#if !data.searchQuery && !searchFilter}
             {#if currentUser}
               <!-- svelte-ignore a11y-invalid-attribute -->
-              <a class="underline" href="#" on:click={() => (editable = true)}>Personalise</a> your
-              profile, then <a class="underline" href={'/letters/new'}>create</a> your first letter 💌
+              <a class="underline" href="#" on:click={() => (editable = true)}>Anpassa</a> din
+              profil, och sedan kan du <a class="underline" href={'/post/new'}>skriva</a> ditt första inlägg 💌
             {:else}
               <!-- svelte-ignore a11y-invalid-attribute -->
               <a href="#" class="underline" on:click={() => (showMenu = true)}>Sign in</a> to start writing.
             {/if}
           {:else}
-            No letters found.
+            Hittade inga inlägg.
           {/if}
         </div>
       </div>
